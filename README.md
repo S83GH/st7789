@@ -26,22 +26,22 @@ reboot
 	{
 	#address-cells = <1>;
 	#size-cells = <0>;
-	status		  = "okay";
-	pinctrl-0	  = <&spi1_3pins_PD>;
+	status = "okay";
+	pinctrl-0 = <&spi1_3pins_PD>;
 	pinctrl-names = "default";
 
 	spi1_display: display@0
 		{
 		compatible = "sitronix,st7789v-170x320";
 		
-		reg	   = <0>;
-		backlight  = <&backlight_pwm5>; //Подсветка - не обязательно, можно закоментировать
+		reg	= <0>;
+		backlight = <&backlight_pwm5>; //Подсветка - не обязательно, можно закоментировать
 		
 		//Частота SPI
 		//60MHz(китайский 1.9 дисплей с aliexpress подключенный на длинных проводах)
 		spi-max-frequency = <60000000>; 
 		
-		dc-gpios    = <&pio 3 13 0>; //PD13
+		dc-gpios = <&pio 3 13 0>; //PD13
 		reset-gpios = <&pio 3 14 0>; //PD14
 		
 		buswidth = <8>;
