@@ -8,6 +8,7 @@ git clone https://github.com/S83GH/st7789
 cd st7789  
 make  
 make install
+
 reboot
 
 После перезагрузки должен появится файл видеокарты /dev/dri/card0 
