@@ -51,3 +51,6 @@ reboot
 		};
 	};
 ```
+<p align="center">
+  <img src="./foto.jpg" alt="foto_screen" width="500" />
+</p>
