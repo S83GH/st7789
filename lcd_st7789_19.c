@@ -1,8 +1,5 @@
-// SPDX-License-Identifier: GPL-2.0-or-later
 /*
  * DRM driver for Sitronix ST7789 panels (170x320)
- * Based on ILI9488 driver and Arduino ST7789 170x320 init sequence
- * Configured for 18-bit (RGB666) bus mode accepting RGB888/XRGB8888
  */
 
 #include <linux/backlight.h>
@@ -129,11 +126,6 @@ static const struct drm_display_mode st7789_mode = {
 	DRM_SIMPLE_MODE(170, 320, 23, 43),
 };
 
-/*
- * Поддерживаемые форматы пикселей без конверсии в RGB565:
- * - RGB888 (24-bit) - передается напрямую по 3 байта на пиксель (ST7789 берет старшие 6 бит каждого канала)
- * - XRGB8888 (32-bit) - для совместимости с приложениями и fbdev
- */
 static const uint32_t st7789_formats[] = {
 	DRM_FORMAT_RGB888,
 	DRM_FORMAT_XRGB8888,
@@ -261,6 +253,6 @@ static struct spi_driver st7789_spi_driver = {
 };
 module_spi_driver(st7789_spi_driver);
 
-MODULE_DESCRIPTION("Sitronix ST7789 170x320 DRM driver with RGB888 support");
-MODULE_AUTHOR("Adapted from ILI9488 driver");
+MODULE_DESCRIPTION("Sitronix ST7789 170x320 DRM driver");
+MODULE_AUTHOR("Sergey Horoshevskiy shaudioprojects@gmail.com");
 MODULE_LICENSE("GPL");
